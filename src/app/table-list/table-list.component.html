@@ -1,0 +1,75 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                        
+                    <div class="card-header card-header-danger">
+                            <button mat-mini-fab matTooltip="Add new entity" color="baisc" style="float:right" (click)="editEntity(null)"> 
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                        <h4 class="card-title">Entities list</h4>
+                        <p class="card-category">Edit your entities</p>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="text-primary">
+                                <th>
+                                    ID
+                                </th>
+                                <th class="pointer" (click)="setSortByField('Name')">
+                                    Name
+                                    <span *ngIf="sortByField == 'Name'; else defult">
+                                        <span class="material-icons" *ngIf="isAsc">arrow_upward</span>
+                                        <span class="material-icons" *ngIf="!isAsc">arrow_downward</span>
+                                    </span>
+                                    <ng-template #defult>
+                                        <span class="material-icons">sort</span>
+                                    </ng-template>
+                                </th>
+                                <th class="pointer" (click)="setSortByField('Date')">
+                                    Date
+                                    <span *ngIf="sortByField == 'Date'; else defult">
+                                        <span class="material-icons" *ngIf="isAsc">arrow_upward</span>
+                                        <span class="material-icons" *ngIf="!isAsc" >arrow_downward</span>
+                                    </span>
+                                    <ng-template #defult>
+                                        <span class="material-icons">sort</span>
+                                    </ng-template>
+                                </th>
+                                <th>
+                                    Edit
+                                </th>
+                                <th>
+                                    Delete
+                                </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let entity of entities | sortBy:sortByField:isAsc; let i = index;">
+                                        <td>
+                                            {{ entity.Id }}
+                                        </td>
+                                        <td>
+                                            {{ entity.Name }}
+                                        </td>
+                                        <td>
+                                            {{ entity.Date | toDate | date:'dd/MM/yyyy' }}
+                                        </td>
+                                        <td>
+                                            <span class="material-icons pointer edit-icon" (click)="editEntity(entity.Id)">edit</span>
+                                        </td>
+                                        <td>
+                                            <span class="material-icons pointer delete-icon" (click)="removeEntity(entity.Id, i)">delete</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

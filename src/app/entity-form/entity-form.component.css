@@ -1,0 +1,8 @@
+span.material-icons {
+    cursor: pointer;
+}
+
+label.is-privet{
+    min-width: 70px;
+    vertical-align: middle;
+}

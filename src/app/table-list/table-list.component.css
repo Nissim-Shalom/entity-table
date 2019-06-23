@@ -1,0 +1,19 @@
+.pointer {
+    cursor: pointer;
+}
+
+span.material-icons.edit-icon {
+    cursor: pointer;
+    color: #5a5aec;
+}
+
+span.material-icons.delete-icon {
+    cursor: pointer;
+    color: #ee514e;
+
+}
+
+table th span.material-icons{
+    vertical-align: bottom;
+
+}
